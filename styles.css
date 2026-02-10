@@ -143,10 +143,12 @@ body{
   box-shadow: 0 16px 40px rgba(0,0,0,.35);
 }
 .btn-outline{
-  background: rgba(255,255,255,.04);
-  color: var(--txt);
-  border:1px solid var(--border);
-  box-shadow:none;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color:#0b0f19;
+  border:1px solid transparent;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;  
+  transform: translateZ(0); 
 }
 .btn-outline:hover{
   background: rgba(255,255,255,.08);
@@ -277,21 +279,6 @@ body{
   gap:10px;
   margin-top: 12px;
   flex-wrap: wrap;
-}
-.chip{
-  text-decoration:none;
-  color: var(--txt);
-  font-weight:800;
-  font-size:.92rem;
-  padding: 10px 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.05);
-  border:1px solid var(--border);
-  transition: transform .18s ease, background .18s ease;
-}
-.chip:hover{
-  transform: translateY(-2px);
-  background: rgba(255,255,255,.08);
 }
 
 .mini-grid{
@@ -539,12 +526,40 @@ body{
     grid-template-columns: 1fr;
   }
 }
-.chip.primary{
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #0b0f19;
-  border: none;
+
+/* Unificar estilo de chips para <a> y <button> */
+.chip{
+  appearance: none;
+  -webkit-appearance: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--border);
+
+  color: var(--txt);
+  font-weight: 800;
+  font-size: .92rem;
+  line-height: 1;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: transform .18s ease, background .18s ease, filter .18s ease;
+  
+}
+button.chip{
+  font-family: inherit;
 }
 
-.chip.muted{
-  opacity: .75;
+
+.chip:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.08);
 }
